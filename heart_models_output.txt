@@ -1,0 +1,123 @@
+=================================================================
+  HEART DISEASE PREDICTION  -  MODEL TRAINING & EVALUATION
+=================================================================
+
+  Dataset shape : (918, 12)
+  Target dist.  : {1: np.int64(508), 0: np.int64(410)}
+
+  Replaced zeros in 'Cholesterol' with mean = 244.64
+  Replaced zeros in 'RestingBP' with mean = 132.54
+
+  Encoded dataset : 918 rows x 16 cols
+  Train size      : 734
+  Test  size      : 184
+
+-----------------------------------------------------------------
+  MODEL: Logistic Regression
+-----------------------------------------------------------------
+
+  Accuracy   : 0.8913  (89.13%)
+  F1-Score   : 0.9029
+  Recall     : 0.9118
+  Precision  : 0.8942
+
+  Classification Report:
+              precision    recall  f1-score   support
+
+  No Disease       0.89      0.87      0.88        82
+     Disease       0.89      0.91      0.90       102
+
+    accuracy                           0.89       184
+   macro avg       0.89      0.89      0.89       184
+weighted avg       0.89      0.89      0.89       184
+
+  Confusion Matrix:
+[[71 11]
+ [ 9 93]]
+
+
+-----------------------------------------------------------------
+  MODEL: Decision Tree
+-----------------------------------------------------------------
+
+  Accuracy   : 0.7500  (75.00%)
+  F1-Score   : 0.7723
+  Recall     : 0.7647
+  Precision  : 0.7800
+
+  Classification Report:
+              precision    recall  f1-score   support
+
+  No Disease       0.71      0.73      0.72        82
+     Disease       0.78      0.76      0.77       102
+
+    accuracy                           0.75       184
+   macro avg       0.75      0.75      0.75       184
+weighted avg       0.75      0.75      0.75       184
+
+  Confusion Matrix:
+[[60 22]
+ [24 78]]
+
+
+-----------------------------------------------------------------
+  MODEL: Random Forest
+-----------------------------------------------------------------
+
+  Accuracy   : 0.8478  (84.78%)
+  F1-Score   : 0.8614
+  Recall     : 0.8529
+  Precision  : 0.8700
+
+  Classification Report:
+              precision    recall  f1-score   support
+
+  No Disease       0.82      0.84      0.83        82
+     Disease       0.87      0.85      0.86       102
+
+    accuracy                           0.85       184
+   macro avg       0.85      0.85      0.85       184
+weighted avg       0.85      0.85      0.85       184
+
+  Confusion Matrix:
+[[69 13]
+ [15 87]]
+
+=================================================================
+  RANDOM FOREST  -  TOP FEATURE IMPORTANCES
+=================================================================
+    ST_Slope_Up                0.1703
+    MaxHR                      0.1224
+    ST_Slope_Flat              0.1108
+    Oldpeak                    0.1031
+    Age                        0.0872
+    Cholesterol                0.0857
+    ExerciseAngina_Y           0.0828
+    RestingBP                  0.0747
+    ChestPainType_ATA          0.0369
+    Sex_M                      0.0349
+    FastingBS                  0.0283
+    ChestPainType_NAP          0.0274
+    RestingECG_Normal          0.0161
+    ChestPainType_TA           0.0105
+    RestingECG_ST              0.0089
+
+=================================================================
+  MODEL COMPARISON SUMMARY
+=================================================================
+  Model                      Accuracy        F1    Recall  Precision
+  -------------------------  --------  --------  --------  ---------
+  Logistic Regression          89.13%    90.29%    91.18%     89.42%
+  Decision Tree                75.00%    77.23%    76.47%     78.00%
+  Random Forest                84.78%    86.14%    85.29%     87.00%
+
+  * Best model (accuracy): Logistic Regression (89.13%)
+
+  Saved: model_performance_comparison.png
+  Saved: model_metrics_individual.png
+  Saved: confusion_matrices.png
+  Saved: feature_importances.png
+
+=================================================================
+  DONE - All models trained and evaluated successfully!
+=================================================================
